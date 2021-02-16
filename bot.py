@@ -1,10 +1,12 @@
 import discord
 from discord.ext import commands
+from playsound import playsound
 import os
 
 bot = commands.Bot(command_prefix='@')
 TOKEN = 'ODEwMTk5NTg2MzcwNDg2Mjcy.YCgLKg.2BpuUrVXtshupsc7K3PGww0wnEU'
 
+# 구동 알림
 @bot.event
 async def on_ready():
     await bot.change_presence(status=discord.Status.online, activity=discord.Activity(type=discord.ActivityType.watching, name="무한열차"))
@@ -15,6 +17,8 @@ async def on_message(msg):
     if msg.author.bot: return None
     await bot.process_commands(msg)
 
+
+# 대화
 @bot.command()
 async def 안녕(ctx):
     embed = discord.Embed(color=discord.Colour.red(), title="음! 반갑다! 나는 렌고쿠 쿄주로 라고 한다!!!")
@@ -86,6 +90,7 @@ async def 바보야(ctx):
 @bot.command()
 async def 이럴수가(ctx):
     await ctx.channel.send('요모야 요모야다')
+    playsound('E:\\WR\\1_PROJECT\\3_Programming_Project\\Bot\\sound\\요모야.mp3')
 
 @bot.command()
 async def 부끄러워(ctx):
@@ -120,7 +125,7 @@ async def 제4형(ctx):
 @bot.command()
 async def 제5형(ctx):
     await ctx.channel.send('ごのかた えんこ - 고노카타 엔코 / 제5형 염호')
-    
+
 @bot.command()
 async def 오의(ctx):
     file = discord.File("연옥.gif")
@@ -156,7 +161,7 @@ async def 언급(ctx):
 async def 포스터(ctx):
     with open('1.png', 'rb') as fp:
         await ctx.channel.send(file=discord.File(fp, '1.png'))
-        
+
 @bot.command()
 async def 우마이(ctx):
     embed = discord.Embed(color=discord.Colour.red(), title="우마이!")
@@ -167,5 +172,7 @@ async def 우마이(ctx):
 async def 심한말(ctx):
     await ctx.channel.send('!!!')
     await ctx.channel.send('음..! 다소 거친 말을 하는군!!')
+#
+
 
 bot.run(os.environ['token'])
