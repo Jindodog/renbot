@@ -95,7 +95,7 @@ async def 이럴수가(ctx):
     channel = ctx.message.author.voice.channel
     vc = await channel.connect()
 
-    vc.play(discord.FFmpegPCMAudio('sound/yomoya.mp3'))
+    vc.play(discord.FFmpegPCMAudio('yomoya.mp3'))
 
     while vc.is_playing():
         await sleep(1)
