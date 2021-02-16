@@ -1,6 +1,8 @@
 import discord
+import time
 from discord.ext import commands
-from playsound import playsound
+from asyncio import sleep
+from discord import FFmpegPCMAudio
 import os
 
 bot = commands.Bot(command_prefix='@')
@@ -90,7 +92,14 @@ async def 바보야(ctx):
 @bot.command()
 async def 이럴수가(ctx):
     await ctx.channel.send('요모야 요모야다')
-    playsound('yomoya.mp3')
+    channel = ctx.message.author.voice.channel
+    vc = await channel.connect()
+
+    vc.play(discord.FFmpegPCMAudio('sound/yomoya.mp3'))
+
+    while vc.is_playing():
+        await sleep(1)
+    await vc.disconnect()
 
 @bot.command()
 async def 부끄러워(ctx):
