@@ -90,7 +90,7 @@ async def 바보야(ctx):
 @bot.command()
 async def 이럴수가(ctx):
     await ctx.channel.send('요모야 요모야다')
-    playsound('/sound/yomoya.mp3')
+    playsound('sound/yomoya.mp3')
 
 @bot.command()
 async def 부끄러워(ctx):
