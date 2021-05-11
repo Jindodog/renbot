@@ -537,4 +537,4 @@ async def 심한말(ctx):
 async def change_status():
     await bot.change_presence(activity=discord.Game(choice(status)))
 
-bot.run('ODEwMTk5NTg2MzcwNDg2Mjcy.YCgLKg.6y2aanCO9-k1-Xz6gKIoyC88-Fg')
+bot.run(os.environ['token'])
