@@ -21,6 +21,11 @@ async def on_message(msg):
     if msg.author.bot: return None
     await bot.process_commands(msg)
 
+@bot.event()
+async def on_message(message):
+    if message.content == "호무라 틀어줘":
+        ch = client.get_channel(810156642909945867)
+        await ch.send("!p https://youtu.be/Ami3hbS68uM")
 
 # 대화
 @bot.command()
