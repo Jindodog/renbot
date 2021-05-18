@@ -16,16 +16,10 @@ async def on_ready():
     change_status.start()
     print('[알림][煉獄 杏寿郎(우마이!)이 성공적으로 구동되었습니다.]')
 
-@bot.event
-async def on_message(msg):
-    if msg.author.bot: return None
-    await bot.process_commands(msg)
-
-@bot.event()
-async def on_message(message):
-    if message.content == "호무라 틀어줘":
-        ch = client.get_channel(810156642909945867)
-        await ch.send("!p https://youtu.be/Ami3hbS68uM")
+#@bot.event
+#async def on_message(msg):
+#    if msg.author.bot: return None
+#    await bot.process_commands(msg)
 
 # 대화
 @bot.command()
