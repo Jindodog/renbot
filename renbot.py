@@ -23,7 +23,7 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-    if message.content == ":sweet_potato:":
+    if message.content == "🍠":
         await message.channel.send("왓쇼이!!!!!")
 
 # 대화
