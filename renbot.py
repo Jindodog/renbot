@@ -21,6 +21,11 @@ async def on_ready():
 #    if msg.author.bot: return None
 #    await bot.process_commands(msg)
 
+@bot.event
+async def on_message(message):
+    if message.content == "고구마":
+        await message.channel.send("왓쇼이!!!!!")
+
 # 대화
 @bot.command()
 async def 안녕(ctx):
