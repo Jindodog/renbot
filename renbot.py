@@ -24,6 +24,7 @@ async def on_ready():
 @bot.event
 async def on_message(message):
     if message.content == "🍠":
+        await msg.add_reaction("🤤")
         await message.channel.send("왓쇼이!!!!!")
 
 # 대화
