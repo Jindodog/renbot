@@ -16,17 +16,23 @@ async def on_ready():
     change_status.start()
     print('[알림][煉獄 杏寿郎(우마이!)이 성공적으로 구동되었습니다.]')
 
+
+# 봇끼리 대화
 @bot.event
 async def on_message(message):
     if message.content == "테스트":
         await message.channel.send("음! 안녕한가 카마도 소년!!")
+        await bot.process_commands(message)
+        return
 
-@bot.event
-async def on_message(message):
-    if message.content == "🍠":
+    elif message.content == "🍠":
         msg = await message.channel.send("🤤")
         await msg.add_reaction("🤤")
         await message.channel.send("왓쇼이!!!!!")
+
+    await bot.process_commands(message)
+    return
+
 
 # 대화
 @bot.command()
