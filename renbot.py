@@ -35,7 +35,8 @@ async def on_message(message):
     await bot.process_commands(message)
     return
 
-@bot.command test(ctx)
+@bot.command(name="따봉")
+async def reaction(ctx):
     await ctx.message.add_reaction('👍')
 
 # 대화
