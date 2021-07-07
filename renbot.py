@@ -29,12 +29,14 @@ async def on_message(message):
         #msg = await message.channel.send("🤤")
         #await msg.add_reaction("🤤")
         
-        await message.add_reaction(🤤)
+        #await message.add_reaction(🤤)
         await message.channel.send("왓쇼이!!!!!")
 
     await bot.process_commands(message)
     return
 
+@bot.command test(ctx)
+    await ctx.message.add_reaction('👍')
 
 # 대화
 @bot.command()
