@@ -26,10 +26,7 @@ async def on_message(message):
         return
 
     elif message.content == "🍠":
-        #msg = await message.channel.send("🤤")
-        #await msg.add_reaction("🤤")
-        
-        #await message.add_reaction(🤤)
+        await message.add_reaction("🤤")
         await message.channel.send("왓쇼이!!!!!")
 
     await bot.process_commands(message)
