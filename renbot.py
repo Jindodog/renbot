@@ -36,6 +36,28 @@ async def on_message(message):
 async def reaction(ctx):
     await ctx.message.add_reaction('👍')
 
+    
+# 이세계 아이돌 노래
+@bot.command()
+async def 갈테니까(ctx):
+    if ctx.author.voice is None or ctx.author.voice.channel is None:
+        embed = discord.Embed(color=discord.Colour.red(), title="음! 노래를 들려주고 싶은데 아무도없군!!")
+        await ctx.message.channel.send(embed=embed)
+
+        return
+
+    channel = ctx.message.author.voice.channel
+    if ctx.voice_client is None:
+        vc = await channel.connect()
+    else:
+        await ctx.voice_client.move_to(channel)
+        vc = ctx.voice_client
+
+    vc.play(discord.FFmpegPCMAudio('WIND.mp3'))
+    vc.source = discord.PCMVolumeTransformer(vc.source)
+    vc.source.volume = 0.5
+    
+    
 # 대화
 @bot.command()
 async def 안녕(ctx):
